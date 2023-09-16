@@ -16,6 +16,8 @@ namespace DS2LM {
 			return &singleton;
 		};
 
+		LightManager();
+		~LightManager();
 		static VOID ReadLightTOML();
 
 		float Contrast;   // 00

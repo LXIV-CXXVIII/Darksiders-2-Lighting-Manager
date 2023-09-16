@@ -111,6 +111,15 @@ namespace DS2LM {
 
 	};
 
+	LightManager::LightManager() {
+	
+		ReadLightTOML();
+	
+	};
+	
+	LightManager::~LightManager() {
+	};
+
 	DWORD64 pLightMan = NULL;
 
 	VOID thread() {
@@ -131,7 +140,7 @@ namespace DS2LM {
 
 				for (auto i : LightMan->worldmap) {
 				
-					if (World == i.first) {
+					if (World == i.first || StartPoint == i.first) {
 					
 						pLightMan = (DWORD64)&i.second;
 					

@@ -6,7 +6,7 @@ namespace DS2LM {
 	BOOL write_branch(DWORD64, LPVOID);
 	VOID init_hooks();
 
-	extern "C" DWORD64 pLightMan;
+	//extern "C" DWORD64 pLightMan;
 
 	///------- x86_64 -------///
 	extern "C" VOID xContrast();
