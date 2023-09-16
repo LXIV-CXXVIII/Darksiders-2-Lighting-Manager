@@ -1,0 +1,3 @@
+﻿  pch.cpp
+  dllmain.cpp
+C:\ds2dev\DS2LM\DS2LM\dllmain.cpp(13): error C4716: 'MainThread': must return a value
