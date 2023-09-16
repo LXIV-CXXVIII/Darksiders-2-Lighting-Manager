@@ -1,8 +1,6 @@
 #include "pch.h"
 #include "DS2LM.h"
 
-DWORD64 pLightMan = NULL;
-
 namespace DS2LM {
 
 	VOID LightManager::ReadLightTOML() {
@@ -113,7 +111,9 @@ namespace DS2LM {
 
 	};
 
-	VOID DS2LM_Thread() {
+	DWORD64 pLightMan = NULL;
+
+	VOID thread() {
 		
 		while (true) {
 		

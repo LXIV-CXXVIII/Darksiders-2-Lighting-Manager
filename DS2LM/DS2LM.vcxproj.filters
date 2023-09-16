@@ -93,4 +93,9 @@
       <Filter>Source Files\DS2LM\Hook</Filter>
     </ClCompile>
   </ItemGroup>
+  <ItemGroup>
+    <MASM Include="x86_64.asm">
+      <Filter>Source Files\DS2LM\Hook</Filter>
+    </MASM>
+  </ItemGroup>
 </Project>

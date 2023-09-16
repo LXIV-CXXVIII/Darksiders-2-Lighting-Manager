@@ -70,6 +70,8 @@ namespace DS2LM {
 	
 	};
 
+	extern "C" DWORD64 pLightMan;
+
 	/*
 	enum HString : hstring {
 
@@ -96,6 +98,6 @@ namespace DS2LM {
 	};
 	*/
 
-	VOID DS2LM_Thread();
+	VOID thread();
 
 }
