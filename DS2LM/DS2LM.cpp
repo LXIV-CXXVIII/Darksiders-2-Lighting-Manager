@@ -134,7 +134,6 @@ namespace DS2LM {
 				auto StartPoint = *(hstring*)(Darksiders2 + 0x138);
 
 				auto LightMan = DS2LM::LightManager::GetSingleton();
-				//pLightMan = (DWORD64)&LightMan;
 
 				Sleep(100);  // dont go the speed of light, you WILL die
 
