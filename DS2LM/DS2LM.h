@@ -44,7 +44,7 @@ namespace DS2LM {
 		float sunSpriteRed;   // 4c
 		float sunSpriteGreen; // 50
 		float sunSpriteBlue;  // 54
-		float sunSpriteAlpha;  // 58
+		float sunSpriteAlpha; // 58
 		float sunSpriteSize;  // 5c
 		float godrayPowerMul; // 60
 		float godrayOutlineR; // 64

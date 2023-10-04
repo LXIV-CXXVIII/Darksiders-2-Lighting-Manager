@@ -77,7 +77,7 @@ xDarknessMul PROC
  push rbx
  mov rbx, [pLightMan]
  mov rbx, [rbx]
- mov eax, [rbx+0ACh]
+ mov eax, [rbx+0B0h]
  mov [rcx+054h], eax
  mov rax, rcx
  pop rbx
@@ -165,7 +165,7 @@ xFogRed PROC
  push rbx
  mov rbx, [pLightMan]
  mov rbx, [rbx]
- movss xmm1, DWORD PTR [rbx+028h]
+ movss xmm1, DWORD PTR [rbx+02Ch]
  movss DWORD PTR [rcx+090h], xmm1
  pop rbx
  jmp [rFogR]
@@ -179,7 +179,7 @@ xFogGreen PROC
  push rbx
  mov rbx, [pLightMan]
  mov rbx, [rbx]
- movss xmm0, DWORD PTR [rbx+02Ch]
+ movss xmm0, DWORD PTR [rbx+030h]
  movss DWORD PTR [rcx+094h], xmm0
  pop rbx
  jmp [rFogG]
@@ -193,7 +193,7 @@ xFogBlue PROC
  push rbx
  mov rbx, [pLightMan]
  mov rbx, [rbx]
- movss xmm1, DWORD PTR [rbx+030h]
+ movss xmm1, DWORD PTR [rbx+034h]
  movss DWORD PTR [rcx+098h], xmm1
  pop rbx
  jmp [rFogB]
@@ -207,7 +207,7 @@ xSunLightRGB PROC
  push rcx
  mov rcx, [pLightMan]
  mov rcx, [rcx]
- movups xmm0, [rcx+034h] 
+ movups xmm0, [rcx+038h] 
  movdqu [rbx+0CB0h], xmm0
  movups xmm0, [rbx+0CB0h]
  pop rcx
@@ -222,7 +222,7 @@ xSunLightStr PROC
  push rcx
  mov rcx, [pLightMan]
  mov rcx, [rcx]
- mov eax, [rcx+044h]
+ mov eax, [rcx+048h]
  mov [rbx+0C94h], eax
  mov eax, [rbx+0C94h]
  pop rcx
@@ -237,7 +237,7 @@ xSunSpriteRGB PROC
  push rcx
  mov rcx, [pLightMan]
  mov rcx, [rcx]
- movups xmm0, [rcx+048h]
+ movups xmm0, [rcx+04Ch]
  movdqu [rbx+0130h], xmm0
  pop rcx
  jmp [rSunSpriteRGB]
@@ -251,7 +251,7 @@ xSunSpriteSize PROC
  push rcx
  mov rcx, [pLightMan]
  mov rcx, [rcx]
- mov eax, [rcx+058h]
+ mov eax, [rcx+05Ch]
  mov [rbx+080h], eax
  pop rcx
  jmp [rSunSpriteSize]
@@ -265,7 +265,7 @@ xGodrayPowerMul PROC
  push rcx
  mov rcx, [pLightMan]
  mov rcx, [rcx]
- mov eax, [rcx+05Ch]
+ mov eax, [rcx+060h]
  mov [rbx+03Ch], eax
  mov eax, [rdi+040h]
  pop rcx
@@ -280,7 +280,7 @@ xGodrayOutline PROC
  push rcx
  mov rcx, [pLightMan]
  mov rcx, [rcx]
- movups xmm0, [rcx+060h]
+ movups xmm0, [rcx+064h]
  movdqu [rbx+0F0h], xmm0
  pop rcx
  jmp [rGodrayOutline]
@@ -294,7 +294,7 @@ xGodrayEdge PROC
  push rcx
  mov rcx, [pLightMan]
  mov rcx, [rcx]
- movups xmm1, [rcx+070h]
+ movups xmm1, [rcx+074h]
  movdqu [rbx+0100h], xmm1
  pop rcx
  jmp [rGodrayEdge]
@@ -308,7 +308,7 @@ xGodrayFill PROC
  push rcx
  mov rcx, [pLightMan]
  mov rcx, [rcx]
- movups xmm0, [rcx+080h]
+ movups xmm0, [rcx+084h]
  movdqu [rbx+0110h], xmm0
  pop rcx
  jmp [rGodrayFill]
@@ -322,7 +322,7 @@ xGodrayShine PROC
  push rcx
  mov rcx, [pLightMan]
  mov rcx, [rcx]
- movups xmm1, [rcx+090h]
+ movups xmm1, [rcx+094h]
  movdqu [rbx+0120h], xmm1
  pop rcx
  jmp [rGodrayShine]
@@ -336,7 +336,7 @@ xSunSpriteX PROC
  push rbx
  mov rbx, [pLightMan]
  mov rbx, [rbx]
- mov eax, [rbx+0A0h]
+ mov eax, [rbx+0A4h]
  mov [rcx+0C8Ch], eax
  mov eax, [rcx+0C8Ch]
  pop rbx
@@ -351,7 +351,7 @@ xSunSpriteY PROC
  push rbx
  mov rbx, [pLightMan]
  mov rbx, [rbx]
- mov eax, DWORD PTR [rbx+0A4h]
+ mov eax, DWORD PTR [rbx+0A8h]
  mov [rcx+0C90h], eax
  mov eax, [rcx+0C90h]
  pop rbx
@@ -366,7 +366,7 @@ xVFXBloomMul PROC
  push rbx
  mov rbx, [pLightMan]
  mov rbx, [rbx]
- mov eax, [rbx+0A8h]
+ mov eax, [rbx+0ACh]
  mov [rcx+030h], eax
  mov eax, [rdx+034h]
  pop rbx

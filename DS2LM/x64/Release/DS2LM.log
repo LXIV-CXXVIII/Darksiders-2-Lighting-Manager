@@ -1,7 +1,2 @@
-﻿  Assembling x86_64.asm...
-  Generating code
-  1 of 2058 functions (<0.1%) were compiled, the rest were copied from previous compilation.
-    0 functions were new in current compilation
-    12 functions had inline decision re-evaluated but remain unchanged
-  Finished generating code
-  DS2LM.vcxproj -> C:\ds2dev\DS2LM\x64\Release\DS2LM.dll
+﻿  DS2LM.cpp
+C:\ds2dev\DS2LM\DS2LM\DS2LM.cpp : fatal error C1041: cannot open program database 'C:\ds2dev\DS2LM\DS2LM\x64\Release\vc142.pdb'; if multiple CL.EXE write to the same .PDB file, please use /FS

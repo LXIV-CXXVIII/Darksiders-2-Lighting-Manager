@@ -5,7 +5,7 @@ namespace DS2LM {
 
 	VOID LightManager::ReadLightTOML() {
 	
-		constexpr auto path = L"Plugins/DS2LM";
+		constexpr auto path = L"plugins/DS2LM";
 		constexpr auto ext = L".toml";
 		constexpr auto basecfg = L"plugins/DS2LM/DS2LM.toml";
 
@@ -76,18 +76,18 @@ namespace DS2LM {
 			} catch (const toml::parse_error& e) {
 
 				std::ostringstream ss;
-				ss << "Error parsing file \'" << *e.source().path << "\:\n"
-					<< '\t' << e.description() << '\n'
-					<< "\t\t(" << e.source().begin << ')';
-				printf("%s", ss.str());
+				//ss << "Error parsing file \'" << *e.source().path << "\:\n"
+					//<< '\t' << e.description() << '\n'
+					//<< "\t\t(" << e.source().begin << ')';
+				//printf("%s", ss.str());
 
 			} catch (const std::exception& e) {
 			
-				printf(e.what());
+				//printf(e.what());
 
 			} catch (...) {
 			
-				printf("Unknown failure");
+				//printf("Unknown failure");
 			
 			};
 
@@ -124,18 +124,18 @@ namespace DS2LM {
 
 	VOID thread() {
 		
-		while (true) {
+		while (auto t = true) {
 		
 			auto Darksiders2 = *(UINT_PTR*)0x141EEC2C0;
 
 			if (Darksiders2) {
+
+				Sleep(100);  // dont go the speed of light, you WILL die
 			
 				auto World = *(hstring*)(Darksiders2 + 0x1F0);
 				auto StartPoint = *(hstring*)(Darksiders2 + 0x138);
 
 				auto LightMan = DS2LM::LightManager::GetSingleton();
-
-				Sleep(100);  // dont go the speed of light, you WILL die
 
 				for (auto i : LightMan->worldmap) {
 				

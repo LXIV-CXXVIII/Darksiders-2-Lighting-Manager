@@ -91,11 +91,13 @@ namespace DS2LM {
 		}
 
 		// fog near
+		/*
 		addr = NULL;
 		rFogNear = (0x0);
 		if (!write_branch(addr, xFogNear)) {
 			printf("bad hook: %llx with retn: %llx", addr, rFogNear);
 		}
+		*/
 
 		/// fog red
 		addr = (0x1407C41C7);

@@ -1,6 +1,7 @@
 // dllmain.cpp : Defines the entry point for the DLL application.
 #include "pch.h"
 #include "DS2LM.h"
+#include "hooks.h"
 
 //void DS2LM() {
 //};
@@ -9,7 +10,7 @@ DWORD WINAPI MainThread() {
 
     CreateThread(0, 0, (LPTHREAD_START_ROUTINE)DS2LM::thread, 0, 0, 0);
     Sleep(100);
-    //InitialiseHooks();
+    DS2LM::init_hooks();
 
     return 0;
 
@@ -25,7 +26,7 @@ BOOL InitInstance() {
 
     if (MH_EnableHook(MH_ALL_HOOKS) != MH_OK) {
     
-        ExitProcess(0xDEADEAD);
+        ExitProcess(0xBEEEEEEF);
     
     };
 
