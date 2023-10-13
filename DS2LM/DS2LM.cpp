@@ -140,8 +140,6 @@ namespace DS2LM {
 
 				auto LightMan = DS2LM::LightManager::GetSingleton();
 
-				//printf("hello\n");
-
 				for (auto i : LightMan->lightMap) {
 				
 					if (World == i.first || StartPoint == i.first) {
