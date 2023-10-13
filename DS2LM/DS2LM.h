@@ -68,7 +68,7 @@ namespace DS2LM {
 		float VFXBloomMul;    // ac
 		float darknessMul;    // b0
 
-		static inline std::unordered_map<hstring, LightManager*> worldmap;
+		static inline std::unordered_map<hstring, LightManager*> lightMap;
 	
 	};
 

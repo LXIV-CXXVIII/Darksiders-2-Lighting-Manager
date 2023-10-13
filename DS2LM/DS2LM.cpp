@@ -7,7 +7,7 @@ namespace DS2LM {
 	
 		constexpr auto path = L"plugins/DS2LM";
 		constexpr auto ext = L".toml";
-		constexpr auto basecfg = L"plugins/DS2LM/DS2LM.toml";
+		constexpr auto basecfg = L"plugins/DS2LM/settings.toml";
 
 		const auto readToml = [&](std::filesystem::path path) {
 		
@@ -69,7 +69,7 @@ namespace DS2LM {
 					manager->sunSpriteX     = *worldTable["fSunSpriteX"].value<float>();
 					manager->sunSpriteY     = *worldTable["fSunSpriteY"].value<float>();
 
-					worldmap.insert_or_assign(world, manager);
+					lightMap.insert_or_assign(world, manager);
 				
 				};
 			
@@ -140,7 +140,7 @@ namespace DS2LM {
 
 				//printf("hello\n");
 
-				for (auto i : LightMan->worldmap) {
+				for (auto i : LightMan->lightMap) {
 				
 					if (World == i.first || StartPoint == i.first) {
 

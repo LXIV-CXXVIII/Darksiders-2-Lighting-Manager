@@ -10,7 +10,7 @@ DWORD WINAPI MainThread() {
 
     CreateThread(0, 0, (LPTHREAD_START_ROUTINE)DS2LM::thread, 0, 0, 0);
     Sleep(100);
-    //DS2LM::init_hooks();
+    DS2LM::init_hooks();
 
     return 0;
 
