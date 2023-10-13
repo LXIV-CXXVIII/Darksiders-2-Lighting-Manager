@@ -8,18 +8,9 @@
 
 namespace DS2LM {
 
-	class LightManager {
+	class Lights {
 	
 	public:
-		static LightManager* GetSingleton() {
-			static LightManager singleton;
-			return &singleton;
-		};
-
-		LightManager();
-		~LightManager();
-		static VOID ReadLightTOML();
-
 		float Contrast;   // 00
 		float Saturation; // 4
 		float Brightness; // 8
@@ -67,9 +58,23 @@ namespace DS2LM {
 		float sunSpriteY;     // a8
 		float VFXBloomMul;    // ac
 		float darknessMul;    // b0
-
-		static inline std::unordered_map<hstring, LightManager*> lightMap;
 	
+	};
+
+	class LightManager {
+
+	public:
+		static LightManager* GetSingleton() {
+			static LightManager singleton;
+			return &singleton;
+		};
+
+		LightManager();
+		~LightManager();
+		static VOID ReadLightTOML();
+
+		static inline std::unordered_map<hstring, Lights*> lightMap;
+
 	};
 
 	extern "C" DWORD64 pLightMan;

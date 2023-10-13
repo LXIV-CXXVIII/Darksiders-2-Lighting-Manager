@@ -5,9 +5,9 @@ namespace DS2LM {
 
 	VOID LightManager::ReadLightTOML() {
 	
-		constexpr auto path = L"plugins/DS2LM";
+		constexpr auto path = L"/plugins/DS2LM";
 		constexpr auto ext = L".toml";
-		constexpr auto basecfg = L"plugins/DS2LM/settings.toml";
+		constexpr auto basecfg = L"/plugins/DS2LM/settings.toml";
 
 		const auto readToml = [&](std::filesystem::path path) {
 		
@@ -22,54 +22,56 @@ namespace DS2LM {
 
 					auto world = *worldTable["hWorld"].value<hstring>();
 
-					auto manager = new LightManager();
-					manager->Contrast       = *worldTable["fContrast"].value<float>();
-					manager->Saturation     = *worldTable["fSaturation"].value<float>();
-					manager->Brightness     = *worldTable["fBrightness"].value<float>();
-					manager->darknessMul    = *worldTable["fDarknessMul"].value<float>();
-					manager->VFXBloomMul    = *worldTable["fVFXBloomMul"].value<float>();
-					manager->modelRed       = *worldTable["fModelRed"].value<float>();
-					manager->modelGreen     = *worldTable["fModelGreen"].value<float>();
-					manager->modelBlue      = *worldTable["fModelBlue"].value<float>();
-					manager->modelAlpha     = *worldTable["fModelAlpha"].value<float>();
-					manager->fogSwitch      = *worldTable["bFogSwitch"].value<bool>();
-					manager->fogStr         = *worldTable["fFogStr"].value<float>();
-					manager->fogDist        = *worldTable["fFogDist"].value<float>();
-					manager->fogNear        = *worldTable["fFogNear"].value<float>();
-					manager->fogRed         = *worldTable["fFogRed"].value<float>();
-					manager->fogGreen       = *worldTable["fFogGreen"].value<float>();
-					manager->fogBlue        = *worldTable["fFogBlue"].value<float>();
-					manager->sunLightRed    = *worldTable["fSunLightRed"].value<float>();
-					manager->sunLightGreen  = *worldTable["fSunLightGreen"].value<float>();
-					manager->sunLightBlue   = *worldTable["fSunLightBlue"].value<float>();
-					manager->sunLightAlpha  = *worldTable["fSunLightAlpha"].value<float>();
-					manager->sunLightStr    = *worldTable["fSunLightStr"].value<float>();
-					manager->sunSpriteRed   = *worldTable["fSunSpriteRed"].value<float>();
-					manager->sunSpriteGreen = *worldTable["fSunSpriteGreen"].value<float>();
-					manager->sunSpriteBlue  = *worldTable["fSunSpriteBlue"].value<float>();
-					manager->sunSpriteAlpha = *worldTable["fSunSpriteAlpha"].value<float>();
-					manager->sunSpriteSize  = *worldTable["fSunSpriteSize"].value<float>();
-					manager->godrayPowerMul = *worldTable["fGodrayPowerMul"].value<float>();
-					manager->godrayOutlineR = *worldTable["fGodrayOutlineR"].value<float>();
-					manager->godrayOutlineG = *worldTable["fGodrayOutlineG"].value<float>();
-					manager->godrayOutlineB = *worldTable["fGodrayOutlineB"].value<float>();
-					manager->godrayOutlineA = *worldTable["fGodrayOutlineA"].value<float>();
-					manager->godrayEdgeR    = *worldTable["fGodrayEdgeR"].value<float>();
-					manager->godrayEdgeG    = *worldTable["fGodrayEdgeG"].value<float>();
-					manager->godrayEdgeB    = *worldTable["fGodrayEdgeB"].value<float>();
-					manager->godrayEdgeA    = *worldTable["fGodrayEdgeA"].value<float>();
-					manager->godrayFillR    = *worldTable["fGodrayFillR"].value<float>();
-					manager->godrayFillG    = *worldTable["fGodrayFillG"].value<float>();
-					manager->godrayFillB    = *worldTable["fGodrayFillB"].value<float>();
-					manager->godrayFillA    = *worldTable["fGodrayFillA"].value<float>();
-					manager->godrayShineR   = *worldTable["fGodrayShineR"].value<float>();
-					manager->godrayShineG   = *worldTable["fGodrayShineG"].value<float>();
-					manager->godrayShineB   = *worldTable["fGodrayShineB"].value<float>();
-					manager->godrayShineS   = *worldTable["fGodrayShineS"].value<float>();
-					manager->sunSpriteX     = *worldTable["fSunSpriteX"].value<float>();
-					manager->sunSpriteY     = *worldTable["fSunSpriteY"].value<float>();
+					auto lights = new Lights();
 
-					lightMap.insert_or_assign(world, manager);
+					//auto manager = new LightManager();
+					lights->Contrast       = *worldTable["fContrast"].value<float>();
+					lights->Saturation     = *worldTable["fSaturation"].value<float>();
+					lights->Brightness     = *worldTable["fBrightness"].value<float>();
+					lights->darknessMul    = *worldTable["fDarknessMul"].value<float>();
+					lights->VFXBloomMul    = *worldTable["fVFXBloomMul"].value<float>();
+					lights->modelRed       = *worldTable["fModelRed"].value<float>();
+					lights->modelGreen     = *worldTable["fModelGreen"].value<float>();
+					lights->modelBlue      = *worldTable["fModelBlue"].value<float>();
+					lights->modelAlpha     = *worldTable["fModelAlpha"].value<float>();
+					lights->fogSwitch      = *worldTable["bFogSwitch"].value<bool>();
+					lights->fogStr         = *worldTable["fFogStr"].value<float>();
+					lights->fogDist        = *worldTable["fFogDist"].value<float>();
+					lights->fogNear        = *worldTable["fFogNear"].value<float>();
+					lights->fogRed         = *worldTable["fFogRed"].value<float>();
+					lights->fogGreen       = *worldTable["fFogGreen"].value<float>();
+					lights->fogBlue        = *worldTable["fFogBlue"].value<float>();
+					lights->sunLightRed    = *worldTable["fSunLightRed"].value<float>();
+					lights->sunLightGreen  = *worldTable["fSunLightGreen"].value<float>();
+					lights->sunLightBlue   = *worldTable["fSunLightBlue"].value<float>();
+					lights->sunLightAlpha  = *worldTable["fSunLightAlpha"].value<float>();
+					lights->sunLightStr    = *worldTable["fSunLightStr"].value<float>();
+					lights->sunSpriteRed   = *worldTable["fSunSpriteRed"].value<float>();
+					lights->sunSpriteGreen = *worldTable["fSunSpriteGreen"].value<float>();
+					lights->sunSpriteBlue  = *worldTable["fSunSpriteBlue"].value<float>();
+					lights->sunSpriteAlpha = *worldTable["fSunSpriteAlpha"].value<float>();
+					lights->sunSpriteSize  = *worldTable["fSunSpriteSize"].value<float>();
+					lights->godrayPowerMul = *worldTable["fGodrayPowerMul"].value<float>();
+					lights->godrayOutlineR = *worldTable["fGodrayOutlineR"].value<float>();
+					lights->godrayOutlineG = *worldTable["fGodrayOutlineG"].value<float>();
+					lights->godrayOutlineB = *worldTable["fGodrayOutlineB"].value<float>();
+					lights->godrayOutlineA = *worldTable["fGodrayOutlineA"].value<float>();
+					lights->godrayEdgeR    = *worldTable["fGodrayEdgeR"].value<float>();
+					lights->godrayEdgeG    = *worldTable["fGodrayEdgeG"].value<float>();
+					lights->godrayEdgeB    = *worldTable["fGodrayEdgeB"].value<float>();
+					lights->godrayEdgeA    = *worldTable["fGodrayEdgeA"].value<float>();
+					lights->godrayFillR    = *worldTable["fGodrayFillR"].value<float>();
+					lights->godrayFillG    = *worldTable["fGodrayFillG"].value<float>();
+					lights->godrayFillB    = *worldTable["fGodrayFillB"].value<float>();
+					lights->godrayFillA    = *worldTable["fGodrayFillA"].value<float>();
+					lights->godrayShineR   = *worldTable["fGodrayShineR"].value<float>();
+					lights->godrayShineG   = *worldTable["fGodrayShineG"].value<float>();
+					lights->godrayShineB   = *worldTable["fGodrayShineB"].value<float>();
+					lights->godrayShineS   = *worldTable["fGodrayShineS"].value<float>();
+					lights->sunSpriteX     = *worldTable["fSunSpriteX"].value<float>();
+					lights->sunSpriteY     = *worldTable["fSunSpriteY"].value<float>();
+
+					lightMap.insert_or_assign(world, lights);
 				
 				};
 			
