@@ -29,18 +29,18 @@ EXTERN pLightMan:QWORD ; OUR CLASS
 
 xContrast PROC
 
-entrance:
+contrastEntrance:
  push rcx
  mov rcx, [pLightMan]
 	test rcx, rcx
-	je exit
+	je contrastExit
  mov rcx, [rcx]
 	test rcx, rcx
-	je exit
+	je contrastExit
  movss xmm0, DWORD PTR [rcx]
  movss DWORD PTR [rdi+028h], xmm0
  mov eax, [rbx+02Ch]
-exit:
+contrastExit:
  pop rcx
  jmp [rContrast]
 
@@ -50,18 +50,18 @@ xContrast ENDP
 
 xSaturation PROC
 
-entrance:
+saturationEntrance:
  push rbx
  mov rbx, [pLightMan]
 	test rbx, rbx
-	je exit
+	je saturationExit
  mov rbx, [rbx]
 	test rbx, rbx
-	je exit
+	je saturationExit
  movss xmm0, DWORD PTR [rbx+04h]
  movss DWORD PTR [rcx+040h], xmm0
  mov eax, DWORD PTR [rdx+044h]
-exit:
+saturationExit:
  pop rbx
  jmp [rSaturation]
 
@@ -71,18 +71,18 @@ xSaturation ENDP
 
 xBrightness PROC
 
-entrance:
+brightnessEntrance:
  push rcx
  mov rcx, [pLightMan]
 	test rcx, rcx
-	je exit
+	je brightnessExit
  mov rcx, [rcx]
 	test rcx, rcx
-	je exit
+	je brightnessExit
  mov eax, [rcx+08h]
  mov [rdi+02Ch], eax
  mov eax, [rbx+030h]
-exit:
+brightnessExit:
  pop rcx
  jmp [rBrightness]
 
@@ -92,18 +92,18 @@ xBrightness ENDP
 
 xDarknessMul PROC
 
-entrance:
+darknessEntrance:
  push rbx
  mov rbx, [pLightMan]
 	test rbx, rbx
-	je exit
+	je darknessExit
  mov rbx, [rbx]
 	test rbx, rbx
-	je exit
+	je darknessExit
  mov eax, [rbx+0B0h]
  mov [rcx+054h], eax
  mov rax, rcx
-exit:
+darknessExit:
  pop rbx
  ret
 
@@ -113,17 +113,17 @@ xDarknessMul ENDP
 
 xModel PROC
 
-entrance:
+modelEntrance:
  push rcx
  mov rcx, [pLightMan]
 	test rcx, rcx
-	je exit
+	je modelExit
  mov rcx, [rcx]
 	test rcx, rcx
-	je exit
+	je modelExit
  movaps xmm0, [rcx+0Ch]
  movups [rdi+0230h], xmm0
-exit:
+modelExit:
  pop rcx
  jmp [rModel]
 
@@ -133,18 +133,18 @@ xModel ENDP
 
 xFogSwitch PROC
 
-entrance:
+fogswitchEntrance:
  push rbx
  mov rbx, [pLightMan]
 	test rbx, rbx
-	je exit
+	je fogswitchExit
  mov rbx, [rbx]
 	test rbx, rbx
-	je exit
+	je fogswitchExit
  mov eax, DWORD PTR [rbx+01Ch]
  mov [rcx+01Ch], eax
  mov eax, [rdx+020h]
-exit:
+fogswitchExit:
  pop rbx
  jmp [rFogSwitch]
 
@@ -154,18 +154,18 @@ xFogSwitch ENDP
 
 xFogStr PROC
 
-entrance:
+fogstrEntrance:
  push rbx
  mov rbx, [pLightMan]
 	test rbx, rbx
-	je exit
+	je fogstrExit
  mov rbx, [rbx]
 	test rbx, rbx
-	je exit
+	je fogstrExit
  movss xmm0, DWORD PTR [rbx+020h]
  movss DWORD PTR [rcx+020h], xmm0 
  mov eax, [rdx+024h]
-exit:
+fogstrExit:
  pop rbx
  jmp [rFogStr]
 
@@ -175,18 +175,18 @@ xFogStr ENDP
 
 xFogDist PROC
 
-entrance:
+fogdistEntrance:
  push rbx
  mov rbx, [pLightMan]
 	test rbx, rbx
-	je exit
+	je fogdistExit
  mov rbx, [rbx]
 	test rbx, rbx
-	je exit
+	je fogdistExit
  movss xmm0, DWORD PTR [rbx+024h]
  movss DWORD PTR [rcx+028h], xmm0
  mov eax, [rdx+030h]
-exit:
+fogdistExit:
  pop rbx
  jmp [rFogDist]
 
@@ -204,17 +204,17 @@ xFogNear ENDP
 
 xFogRed PROC
 
-entrance:
+fogredEntrance:
  push rbx
  mov rbx, [pLightMan]
 	test rbx, rbx
-	je exit
+	je fogredExit
  mov rbx, [rbx]
 	test rbx, rbx
-	je exit
+	je fogredExit
  movss xmm1, DWORD PTR [rbx+02Ch]
  movss DWORD PTR [rcx+090h], xmm1
-exit:
+fogredExit:
  pop rbx
  jmp [rFogR]
 
@@ -224,17 +224,17 @@ xFogRed ENDP
 
 xFogGreen PROC
 
-entrance:
+foggreenEntrance:
  push rbx
  mov rbx, [pLightMan]
 	test rbx, rbx
-	je exit
+	je foggreenExit
  mov rbx, [rbx]
 	test rbx, rbx
-	je exit
+	je foggreenExit
  movss xmm0, DWORD PTR [rbx+030h]
  movss DWORD PTR [rcx+094h], xmm0
-exit:
+foggreenExit:
  pop rbx
  jmp [rFogG]
 
@@ -244,17 +244,17 @@ xFogGreen ENDP
 
 xFogBlue PROC
 
-entrance:
+fogblueEntrance:
  push rbx
  mov rbx, [pLightMan]
 	test rbx, rbx
-	je exit
+	je fogblueExit
  mov rbx, [rbx]
 	test rbx, rbx
-	je exit
+	je fogblueExit
  movss xmm1, DWORD PTR [rbx+034h]
  movss DWORD PTR [rcx+098h], xmm1
-exit:
+fogblueExit:
  pop rbx
  jmp [rFogB]
 
@@ -264,18 +264,18 @@ xFogBlue ENDP
 
 xSunLightRGB PROC
 
-entrance:
+sunlightrgbEntrance:
  push rcx
  mov rcx, [pLightMan]
 	test rcx, rcx
-	je exit
+	je sunlightrgbExit
  mov rcx, [rcx]
 	test rcx, rcx
-	je exit
+	je sunlightrgbExit
  movups xmm0, [rcx+038h] 
  movdqu [rbx+0CB0h], xmm0
  movups xmm0, [rbx+0CB0h]
-exit:
+sunlightrgbExit:
  pop rcx
  jmp [rSunLightRGB]
 
@@ -285,18 +285,18 @@ xSunLightRGB ENDP
 
 xSunLightStr PROC
 
-entrance:
+sunlightstrEntrance:
  push rcx
  mov rcx, [pLightMan]
 	test rcx, rcx
-	je exit
+	je sunlightstrExit
  mov rcx, [rcx]
 	test rcx, rcx
-	je exit
+	je sunlightstrExit
  mov eax, [rcx+048h]
  mov [rbx+0C94h], eax
  mov eax, [rbx+0C94h]
-exit:
+sunlightstrExit:
  pop rcx
  jmp [rSunLightStr]
 
@@ -306,16 +306,17 @@ xSunLightStr ENDP
 
 xSunSpriteRGB PROC
 
+sunspritergbEntrance:
  push rcx
  mov rcx, [pLightMan]
 	test rcx, rcx
-	je exit
+	je sunspritergbExit
  mov rcx, [rcx]
 	test rcx, rcx
-	je exit
+	je sunspritergbExit
  movups xmm0, [rcx+04Ch]
  movdqu [rbx+0130h], xmm0
-exit:
+sunspritergbExit:
  pop rcx
  jmp [rSunSpriteRGB]
 
@@ -325,17 +326,17 @@ xSunSpriteRGB ENDP
 
 xSunSpriteSize PROC
 
-entrance:
+sunspritesizeEntrance:
  push rcx
  mov rcx, [pLightMan]
 	test rcx, rcx
-	je exit
+	je sunspritesizeExit
  mov rcx, [rcx]
 	test rcx, rcx
-	je exit
+	je sunspritesizeExit
  mov eax, [rcx+05Ch]
  mov [rbx+080h], eax
-exit:
+sunspritesizeExit:
  pop rcx
  jmp [rSunSpriteSize]
 
@@ -345,18 +346,18 @@ xSunSpriteSize ENDP
 
 xGodrayPowerMul PROC
 
-entrance:
+godraypowerEntrance:
  push rcx
  mov rcx, [pLightMan]
 	test rcx, rcx
-	je exit
+	je godraypowerExit
  mov rcx, [rcx]
 	test rcx, rcx
-	je exit
+	je godraypowerExit
  mov eax, [rcx+060h]
  mov [rbx+03Ch], eax
  mov eax, [rdi+040h]
-exit:
+godraypowerExit:
  pop rcx
  jmp [rGodrayPowerMul]
 
@@ -366,17 +367,17 @@ xGodrayPowerMul ENDP
 
 xGodrayOutline PROC
 
-entrance:
+godrayoutlineEntrance:
  push rcx
  mov rcx, [pLightMan]
 	test rcx, rcx
-	je exit
+	je godrayoutlineExit
  mov rcx, [rcx]
 	test rcx, rcx
-	je exit
+	je godrayoutlineExit
  movups xmm0, [rcx+064h]
  movdqu [rbx+0F0h], xmm0
-exit:
+godrayoutlineExit:
  pop rcx
  jmp [rGodrayOutline]
 
@@ -386,17 +387,17 @@ xGodrayOutline ENDP
 
 xGodrayEdge PROC
 
-entrance:
+godrayedgeEntrance:
  push rcx
  mov rcx, [pLightMan]
 	test rcx, rcx
-	je exit
+	je godrayedgeExit
  mov rcx, [rcx]
 	test rcx, rcx
-	je exit
+	je godrayedgeExit
  movups xmm1, [rcx+074h]
  movdqu [rbx+0100h], xmm1
-exit:
+godrayedgeExit:
  pop rcx
  jmp [rGodrayEdge]
 
@@ -406,17 +407,17 @@ xGodrayEdge ENDP
 
 xGodrayFill PROC
 
-entrance:
+godrayfillEntrance:
  push rcx
  mov rcx, [pLightMan]
 	test rcx, rcx
-	je exit
+	je godrayfillExit
  mov rcx, [rcx]
 	test rcx, rcx
-	je exit
+	je godrayfillExit
  movups xmm0, [rcx+084h]
  movdqu [rbx+0110h], xmm0
-exit:
+godrayfillExit:
  pop rcx
  jmp [rGodrayFill]
 
@@ -426,17 +427,17 @@ xGodrayFill ENDP
 
 xGodrayShine PROC
 
-entrance:
+godrayshineEntrance:
  push rcx
  mov rcx, [pLightMan]
 	test rcx, rcx
-	je exit
+	je godrayshineExit
  mov rcx, [rcx]
 	test rcx, rcx
-	je exit
+	je godrayshineExit
  movups xmm1, [rcx+094h]
  movdqu [rbx+0120h], xmm1
-exit:
+godrayshineExit:
  pop rcx
  jmp [rGodrayShine]
 
@@ -446,18 +447,18 @@ xGodrayShine ENDP
 
 xSunSpriteX PROC
 
-entrance:
+sunspritexEntrance:
  push rbx
  mov rbx, [pLightMan]
 	test rbx, rbx
-	je exit
+	je sunspritexExit
  mov rbx, [rbx]
 	test rbx, rbx
-	je exit
+	je sunspritexExit
  mov eax, [rbx+0A4h]
  mov [rcx+0C8Ch], eax
  mov eax, [rcx+0C8Ch]
-exit:
+sunspritexExit:
  pop rbx
  jmp [rSunSpriteX]
 
@@ -467,18 +468,18 @@ xSunSpriteX ENDP
 
 xSunSpriteY PROC
 
-entrance:
+sunspriteyEntrance:
  push rbx
  mov rbx, [pLightMan]
 	test rbx, rbx
-	je exit
+	je sunspriteyExit
  mov rbx, [rbx]
 	test rbx, rbx
-	je exit
+	je sunspriteyExit
  mov eax, DWORD PTR [rbx+0A8h]
  mov [rcx+0C90h], eax
  mov eax, [rcx+0C90h]
-exit:
+sunspriteyExit:
  pop rbx
  jmp [rSunSpriteY]
 
@@ -488,18 +489,18 @@ xSunSpriteY ENDP
 
 xVFXBloomMul PROC
 
-entrance:
+vfxbloomEntrance:
  push rbx
  mov rbx, [pLightMan]
 	test rbx, rbx
-	je exit
+	je vfxbloomExit
  mov rbx, [rbx]
 	test rbx, rbx
-	je exit
+	je vfxbloomExit
  mov eax, [rbx+0ACh]
  mov [rcx+030h], eax
  mov eax, [rdx+034h]
-exit:
+vfxbloomExit:
  pop rbx
  jmp [rVFXBloomMul]
 
