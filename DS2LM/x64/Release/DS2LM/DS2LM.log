@@ -1,8 +1,8 @@
 ﻿  DS2LM.cpp
-C:\ds2dev\DS2LM\DS2LM\DS2LM.cpp(78,38): warning C4101: 'e': unreferenced local variable
+C:\ds2dev\DS2LM\DS2LM\DS2LM.cpp(80,58): warning C4129: ':': unrecognized character escape sequence
   Generating code
-  2 of 2023 functions (<0.1%) were compiled, the rest were copied from previous compilation.
-    0 functions were new in current compilation
+  3 of 2091 functions ( 0.1%) were compiled, the rest were copied from previous compilation.
+    1 functions were new in current compilation
     14 functions had inline decision re-evaluated but remain unchanged
   Finished generating code
   DS2LM.vcxproj -> C:\ds2dev\DS2LM\x64\Release\DS2LM.dll

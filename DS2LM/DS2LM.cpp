@@ -5,9 +5,9 @@ namespace DS2LM {
 
 	VOID LightManager::ReadLightTOML() {
 	
-		constexpr auto path = L"/plugins/DS2LM";
+		constexpr auto path = L"plugins/DS2LM";
 		constexpr auto ext = L".toml";
-		constexpr auto basecfg = L"/plugins/DS2LM/settings.toml";
+		constexpr auto basecfg = L"plugins/DS2LM/settings.toml";
 
 		const auto readToml = [&](std::filesystem::path path) {
 		
@@ -20,11 +20,10 @@ namespace DS2LM {
 				
 					auto& worldTable = *elem.as_table();
 
-					auto world = *worldTable["hWorld"].value<hstring>();
+					size_t pos;
+					hstring world = std::stoull(*worldTable["hWorld"].value<std::string>(), &pos, 16);
 
 					auto lights = new Lights();
-
-					//auto manager = new LightManager();
 					lights->Contrast       = *worldTable["fContrast"].value<float>();
 					lights->Saturation     = *worldTable["fSaturation"].value<float>();
 					lights->Brightness     = *worldTable["fBrightness"].value<float>();
@@ -77,12 +76,11 @@ namespace DS2LM {
 			
 			} catch (const toml::parse_error& e) {
 
-				//std::ostringstream ss;
-				//ss << "Error parsing file \'" << *e.source().path << "\:\n"
-					//<< '\t' << e.description() << '\n'
-					//<< "\t\t(" << e.source().begin << ')';
-				//printf("%s", ss.str());
-				printf("parse error\n");
+				std::ostringstream ss;
+				ss << "Error parsing file \'" << *e.source().path << "\:\n"
+					<< '\t' << e.description() << '\n'
+					<< "\t\t(" << e.source().begin << ')';
+				printf("%s", ss.str().c_str());
 
 			} catch (const std::exception& e) {
 			
