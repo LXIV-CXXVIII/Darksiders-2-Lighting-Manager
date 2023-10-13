@@ -20,7 +20,7 @@ namespace DS2LM {
 				
 					auto& worldTable = *elem.as_table();
 
-					auto world = *worldTable["world"].value<hstring>();
+					auto world = *worldTable["hWorld"].value<hstring>();
 
 					auto manager = new LightManager();
 					manager->Contrast       = *worldTable["fContrast"].value<float>();
@@ -75,19 +75,20 @@ namespace DS2LM {
 			
 			} catch (const toml::parse_error& e) {
 
-				std::ostringstream ss;
+				//std::ostringstream ss;
 				//ss << "Error parsing file \'" << *e.source().path << "\:\n"
 					//<< '\t' << e.description() << '\n'
 					//<< "\t\t(" << e.source().begin << ')';
 				//printf("%s", ss.str());
+				printf("parse error\n");
 
 			} catch (const std::exception& e) {
 			
-				//printf(e.what());
+				printf(e.what());
 
 			} catch (...) {
 			
-				//printf("Unknown failure");
+				printf("Unknown failure\n");
 			
 			};
 
@@ -137,10 +138,12 @@ namespace DS2LM {
 
 				auto LightMan = DS2LM::LightManager::GetSingleton();
 
+				//printf("hello\n");
+
 				for (auto i : LightMan->worldmap) {
 				
 					if (World == i.first || StartPoint == i.first) {
-					
+
 						pLightMan = (DWORD64)&i.second;
 					
 					};

@@ -10,7 +10,7 @@ DWORD WINAPI MainThread() {
 
     CreateThread(0, 0, (LPTHREAD_START_ROUTINE)DS2LM::thread, 0, 0, 0);
     Sleep(100);
-    DS2LM::init_hooks();
+    //DS2LM::init_hooks();
 
     return 0;
 
@@ -47,6 +47,10 @@ BOOL APIENTRY DllMain( HMODULE hModule,
     switch (ul_reason_for_call)
     {
     case DLL_PROCESS_ATTACH:
+        FILE* fp;
+        AllocConsole();
+        SetConsoleTitleA("DS2LM - Debug Console");
+        freopen_s(&fp, "CONOUT$", "w", stdout);
         InitInstance();
         break;
     case DLL_PROCESS_DETACH:
