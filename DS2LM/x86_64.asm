@@ -39,8 +39,8 @@ contrastEntrance:
 	je contrastExit
  movss xmm0, DWORD PTR [rcx]
  movss DWORD PTR [rdi+028h], xmm0
- mov eax, [rbx+02Ch]
 contrastExit:
+ mov eax, [rbx+02Ch]
  pop rcx
  jmp [rContrast]
 
@@ -60,8 +60,8 @@ saturationEntrance:
 	je saturationExit
  movss xmm0, DWORD PTR [rbx+04h]
  movss DWORD PTR [rcx+040h], xmm0
- mov eax, DWORD PTR [rdx+044h]
 saturationExit:
+ mov eax, DWORD PTR [rdx+044h]
  pop rbx
  jmp [rSaturation]
 
@@ -81,8 +81,8 @@ brightnessEntrance:
 	je brightnessExit
  mov eax, [rcx+08h]
  mov [rdi+02Ch], eax
- mov eax, [rbx+030h]
 brightnessExit:
+ mov eax, [rbx+030h]
  pop rcx
  jmp [rBrightness]
 
@@ -102,8 +102,8 @@ darknessEntrance:
 	je darknessExit
  mov eax, [rbx+0B0h]
  mov [rcx+054h], eax
- mov rax, rcx
 darknessExit:
+ mov rax, rcx
  pop rbx
  ret
 
@@ -143,8 +143,8 @@ fogswitchEntrance:
 	je fogswitchExit
  mov eax, DWORD PTR [rbx+01Ch]
  mov [rcx+01Ch], eax
- mov eax, [rdx+020h]
 fogswitchExit:
+ mov eax, [rdx+020h]
  pop rbx
  jmp [rFogSwitch]
 
@@ -164,8 +164,8 @@ fogstrEntrance:
 	je fogstrExit
  movss xmm0, DWORD PTR [rbx+020h]
  movss DWORD PTR [rcx+020h], xmm0 
- mov eax, [rdx+024h]
 fogstrExit:
+ mov eax, [rdx+024h]
  pop rbx
  jmp [rFogStr]
 
@@ -185,8 +185,8 @@ fogdistEntrance:
 	je fogdistExit
  movss xmm0, DWORD PTR [rbx+024h]
  movss DWORD PTR [rcx+028h], xmm0
- mov eax, [rdx+030h]
 fogdistExit:
+ mov eax, [rdx+030h]
  pop rbx
  jmp [rFogDist]
 
@@ -273,9 +273,9 @@ sunlightrgbEntrance:
 	test rcx, rcx
 	je sunlightrgbExit
  movups xmm0, [rcx+038h] 
- movdqu [rbx+0CB0h], xmm0
- movups xmm0, [rbx+0CB0h]
+ movaps [rbx+0CB0h], xmm0
 sunlightrgbExit:
+ movups xmm0, [rbx+0CB0h]
  pop rcx
  jmp [rSunLightRGB]
 
@@ -295,8 +295,8 @@ sunlightstrEntrance:
 	je sunlightstrExit
  mov eax, [rcx+048h]
  mov [rbx+0C94h], eax
- mov eax, [rbx+0C94h]
 sunlightstrExit:
+ mov eax, [rbx+0C94h]
  pop rcx
  jmp [rSunLightStr]
 
@@ -315,7 +315,7 @@ sunspritergbEntrance:
 	test rcx, rcx
 	je sunspritergbExit
  movups xmm0, [rcx+04Ch]
- movdqu [rbx+0130h], xmm0
+ movaps [rbx+0130h], xmm0
 sunspritergbExit:
  pop rcx
  jmp [rSunSpriteRGB]
@@ -356,8 +356,8 @@ godraypowerEntrance:
 	je godraypowerExit
  mov eax, [rcx+060h]
  mov [rbx+03Ch], eax
- mov eax, [rdi+040h]
 godraypowerExit:
+ mov eax, [rdi+040h]
  pop rcx
  jmp [rGodrayPowerMul]
 
@@ -376,7 +376,7 @@ godrayoutlineEntrance:
 	test rcx, rcx
 	je godrayoutlineExit
  movups xmm0, [rcx+064h]
- movdqu [rbx+0F0h], xmm0
+ movaps [rbx+0F0h], xmm0
 godrayoutlineExit:
  pop rcx
  jmp [rGodrayOutline]
@@ -396,7 +396,7 @@ godrayedgeEntrance:
 	test rcx, rcx
 	je godrayedgeExit
  movups xmm1, [rcx+074h]
- movdqu [rbx+0100h], xmm1
+ movaps [rbx+0100h], xmm1
 godrayedgeExit:
  pop rcx
  jmp [rGodrayEdge]
@@ -457,8 +457,8 @@ sunspritexEntrance:
 	je sunspritexExit
  mov eax, [rbx+0A4h]
  mov [rcx+0C8Ch], eax
- mov eax, [rcx+0C8Ch]
 sunspritexExit:
+ mov eax, [rcx+0C8Ch]
  pop rbx
  jmp [rSunSpriteX]
 
@@ -478,8 +478,8 @@ sunspriteyEntrance:
 	je sunspriteyExit
  mov eax, DWORD PTR [rbx+0A8h]
  mov [rcx+0C90h], eax
- mov eax, [rcx+0C90h]
 sunspriteyExit:
+ mov eax, [rcx+0C90h]
  pop rbx
  jmp [rSunSpriteY]
 
@@ -499,8 +499,8 @@ vfxbloomEntrance:
 	je vfxbloomExit
  mov eax, [rbx+0ACh]
  mov [rcx+030h], eax
- mov eax, [rdx+034h]
 vfxbloomExit:
+ mov eax, [rdx+034h]
  pop rbx
  jmp [rVFXBloomMul]
 

@@ -20,6 +20,7 @@ namespace DS2LM {
 				
 					auto& worldTable = *elem.as_table();
 
+					// this is just THE WORST
 					size_t pos;
 					hstring world = std::stoull(*worldTable["hWorld"].value<std::string>(), &pos, 16);
 

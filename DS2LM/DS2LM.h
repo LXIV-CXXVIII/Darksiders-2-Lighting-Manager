@@ -8,7 +8,7 @@
 
 namespace DS2LM {
 
-	class Lights {
+	class Lights { // this could prolly be a struct but eh
 	
 	public:
 		float Contrast;   // 00
