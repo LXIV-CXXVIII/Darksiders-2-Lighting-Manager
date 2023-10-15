@@ -47,10 +47,6 @@ BOOL APIENTRY DllMain( HMODULE hModule,
     switch (ul_reason_for_call)
     {
     case DLL_PROCESS_ATTACH:
-        FILE* fp;
-        AllocConsole();
-        SetConsoleTitleA("DS2LM - Debug Console");
-        freopen_s(&fp, "CONOUT$", "w", stdout);
         InitInstance();
         break;
     case DLL_PROCESS_DETACH:
